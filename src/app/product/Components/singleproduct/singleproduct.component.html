@@ -1,0 +1,49 @@
+<!-- Single Page -->
+<div class="banner-bootom-w3-agileits py-5">
+  <div class="container py-xl-4 py-lg-2">
+    <!-- tittle heading -->
+    <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+
+      {{productDetails?.name}}</h3>
+    <!-- //tittle heading -->
+    <div class="row">
+      <div class="col-lg-5 col-md-8 single-right-left ">
+        <div class="grid images_3_of_2">
+          <div class="flexslider">
+            <div class="clearfix"></div>
+            <img class="img-fluid w-75 h-50" src="http://localhost:5252/images/{{productDetails?.mainImage}}"alt="ProductImage">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+        <h3 class="mb-3">{{productDetails?.description}} </h3>
+        <p class="mb-3">
+          <span class="item_price">{{productDetails?.price}}$</span>
+          <del class="mx-2 font-weight-light">{{productDetails?.price+50}}$</del>
+
+        </p>
+        <div class="single-infoagile">
+          <ul>
+            <li class="mb-3">
+              Quantity : {{productDetails?.quantity}}
+            </li>
+            <li class="mb-3" *ngFor="let item of AdditionalFeature">
+              {{item.key}}: {{item.value}}
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="occasion-cart">
+          <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+            <button  class="btn  w-100" style="background-color: #0879c9; color: white;" (click)="addToCart(productDetails.id)" >Add to cart</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //Single Page -->

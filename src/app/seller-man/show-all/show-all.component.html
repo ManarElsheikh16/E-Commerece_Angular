@@ -1,0 +1,41 @@
+<section class="wrapper">
+    <div class="container-fostrap">
+    
+        <div class="content">
+            <div class="container">
+          
+                    <button class="btn   my-3 d-block" style="
+                    left: 90%;
+                    position: relative; background-color: #0879C9;
+                " (click)="AddProduct()" >Add Product</button>
+
+             
+                <div class="row">
+                
+                    <div class="col-xs-12 col-sm-4 " *ngFor="let Pro of AllProducts">
+                        <div class="card">
+                            <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                            <img src={{Pro.image}} />
+                          </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">    {{Pro.title}}  
+                                  </a>
+                                </h4>
+                                <p class="">
+                                 Category:    {{Pro.category}}  
+                          </p>
+                            </div>
+                            <input type="text" >
+                            <div class="card-read-more">
+                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                                    {{Pro.price}}  
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

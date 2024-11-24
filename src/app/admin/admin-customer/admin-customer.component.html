@@ -1,0 +1,27 @@
+
+<div class="col-12 col-md-12 col-lg-12">
+  <div class="card box-shadow mx-auto " >
+    <h1 class="text-center">Customers</h1>
+    <img src="../../../assets/images/customars.jfif" class="card-img-top w-50 m-auto" height="350vh">
+
+<table caption="Customars" class="table table-bordered table-hover text-center p-2 w-100 mx-auto border">
+    <thead class="border">
+      <th class="border">First Name</th>
+      <th class="border">Last Name</th>
+      <th class="border">Address</th>
+      <th class="border">Email</th>
+      <th class="border">Username</th>
+    </thead>
+    <tbody class="border">
+      <tr  class="border" *ngFor="let user of Customers">
+        <td class="border">{{user.applicationUser.firstName}}</td>
+        <td class="border">{{user.applicationUser.lastName}}</td>
+        <td class="border">{{user.applicationUser.address}}</td>
+        <td class="border">{{user.applicationUser.email}}</td>
+        <td class="border">{{user.applicationUser.userName}}</td>
+
+      </tr>
+    </tbody>
+    </table>
+    </div>
+  </div>

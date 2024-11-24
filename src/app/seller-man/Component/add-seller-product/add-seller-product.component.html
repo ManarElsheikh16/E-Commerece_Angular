@@ -1,0 +1,178 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-1 register-left">
+            <img src="" alt="" />
+
+
+        </div>
+        <div class="col-md-12 register-right">
+            <ul class="nav nav-tabs col-md-2 nav-justified" id="myTab" role="tablist">
+
+                <li class="nav-item ">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">Welcome {{Seller}}</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Add New Product</h3>
+                    <form class="row register-form form-group" [formGroup]="AddForm"   (ngSubmit)="submitRegisterForm(AddForm)">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" [class.is-invalid]="Name?.invalid &&Name?.touched"
+                                    formControlName="Name" class="form-control" placeholder="Product Name" value="" />
+                                <div *ngIf="Name?.invalid &&Name?.touched">
+                                    <small *ngIf="Name?.errors?.['required']  " class="text-danger">Product Name is
+                                        required</small>
+                                        <small *ngIf="Name?.errors?.['minlength']" class="text-danger">Minmum Length 3 Character</small>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input [class.is-invalid]="Price?.invalid &&Price?.touched" type="number"
+                                    formControlName="Price" class="form-control" placeholder="Price" value="" />
+                                <div *ngIf="Price?.invalid &&Price?.touched">
+
+                                    <small *ngIf="Price?.errors?.['required']" class="text-danger">Price is
+                                        required</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input [class.is-invalid]="Quantity?.invalid &&Quantity?.touched" type="number"
+                                    formControlName="Quantity" class="form-control" placeholder="Quantity" value="" />
+                                <div *ngIf="Quantity?.invalid &&Quantity?.touched">
+
+                                    <small *ngIf="Quantity?.errors?.['required']" class="text-danger">Quantity is
+                                        required</small>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <!-- <select   class="form-control">
+                                    <option *ngFor="let item of CategoryList" value="{{item.id}}">{{item.name}}</option>
+                                </select> -->
+
+                                <select formControlName="Category" class="form-control ">
+                                    <option   selected  disabled  value="all">Select Category</option>
+                                    <option   *ngFor="let option of CategoryList" value="{{option.id}}">{{option.name}}</option>
+                                  </select>
+                                <div *ngIf="Category?.invalid &&Category?.touched">
+
+                                    <small *ngIf="Category?.errors?.['required']" class="text-danger">Quantity is
+                                        required</small>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" [class.is-invalid]="Description?.invalid &&Description?.touched"
+                                    formControlName="Description" class="form-control" placeholder="Description"
+                                    value="" />
+                                <div *ngIf="Description?.invalid &&Description?.touched">
+
+                                    <small *ngIf="Description?.errors?.['required']" class="text-danger">Description is
+                                        required</small>
+                                        <small *ngIf="Description?.errors?.['minlength']" class="text-danger">Minmum Length 3 Character</small>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label>FeatureName</label>
+                                <input [class.is-invalid]="FeatureName1?.invalid &&FeatureName1?.touched" type="text"
+                                    formControlName="FeatureName1" class="form-control" placeholder="FeatureName1" value="" />
+                                <div *ngIf="FeatureName1?.invalid &&FeatureName1?.touched">
+
+                                    <small *ngIf="Quantity?.errors?.['required']" class="text-danger">Feature is
+                                        required</small>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>FeatureValue</label>
+                                <input [class.is-invalid]="FeatureValue1?.invalid &&FeatureValue1?.touched" type="text"
+                                    formControlName="FeatureValue1" class="form-control" placeholder="FeatureValue1" value="" />
+                                <div *ngIf="FeatureValue1?.invalid &&FeatureValue1?.touched">
+
+                                    <small *ngIf="FeatureValue1?.errors?.['required']" class="text-danger">Feature is
+                                        required</small>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>FeatureName</label>
+                                <input [class.is-invalid]="FeatureName2?.invalid &&FeatureName2?.touched" type="text"
+                                    formControlName="FeatureName2" class="form-control" placeholder="FeatureName2" value="" />
+                                <div *ngIf="FeatureName2?.invalid &&FeatureName2?.touched">
+
+                                    <small *ngIf="FeatureName2?.errors?.['required']" class="text-danger">Feature is
+                                        required</small>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>FeatureValue</label>
+                                <input [class.is-invalid]="FeatureValue2?.invalid &&FeatureValue2?.touched" type="text"
+                                    formControlName="FeatureValue2" class="form-control" placeholder="FeatureValue2" value="" />
+                                <div *ngIf="FeatureValue2?.invalid &&FeatureValue2?.touched">
+
+                                    <small *ngIf="FeatureValue2?.errors?.['required']" class="text-danger">Feature is
+                                        required</small>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                            <label class="form-label" for="customFile">Main Product Img</label>
+                            <input  class="form-control"
+                             type="file"
+                             formControlName="MainProductImg"
+                            id="formFile"
+                            (change)="onSelectFile($event)" />
+                            <!-- id="customFile" -->
+                            <br>
+                            <!-- <label class="form-label" for="customFile">More Img</label>
+                            <input type="file"
+                             class="form-control"
+                             formControlName="MoreImg"
+                              id="formManyFile"
+                            (change)="onSelectFile($event)" />
+                            <br> -->
+                            <!-- <BUtton  type="submit" class="btn btn-primary"  >Submit</BUtton> -->
+                            <div class="col-12">
+                                <button   type="submit" [class]="AddForm.invalid?'btn btn-danger' :'btn btn-primary'"
+                                  class="btn btn-primary px-4 float-end mt-4">Add Now</button>
+                              </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

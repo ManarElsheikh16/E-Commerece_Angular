@@ -1,0 +1,60 @@
+<div class="content" >
+  <div class="Header">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs col-md-6 nav-justified mx-auto my-5">
+            <li class="nav-item">
+              <h3 class="fw-bold circle" role="tab" aria-controls="profile">
+                <img
+                  class="img-fluid w-25"
+                  style="border-radius: 50%; border: 1px solid red"
+                  src="http://localhost:5252/images/{{
+                    SellerInfo?.nationalIdImage
+                  }}"
+                  alt="ProductImage"
+                />
+              </h3>
+              <span style="font-weight: bolder
+              ;">{{ Seller }}</span>
+            </li>
+          </ul>
+
+          <div class="row my-5">
+            <button
+              class="btn btn-primary w-50 mx-auto"
+              style="border-radius: 20%"
+              (click)="GOaDD()"
+            >
+              ADD New PRODUCT
+            </button>
+          </div>
+        </div>
+        <div
+          class="col-6 col-md-3 col-lg-3"
+          *ngFor="let item of products"
+          style="margin-bottom: 20px"
+        >
+          <div class="card box-shadow mx-auto" style="width: 18rem;overflow-y: hidden;">
+            <img
+              style="margin-top: 15px"
+              src="http://localhost:5252/images/{{ item.mainImage }}"
+              class="card-img-top"
+              height="200vh"
+            />
+            <div class="card-body" style="height: 375px">
+              <h5 class="card-title" >Name: {{ item.name }}</h5>
+              <hr />
+              <p>selling price: {{ item.price }}$</p>
+              <p >Base price: {{ item.price - 80}} $</p>
+              <p [style.color]="item.quantity < 5 ? 'red' : 'black'">
+                Quantity: {{ item.quantity }}
+              </p>
+              <p>Description: {{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

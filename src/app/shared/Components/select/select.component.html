@@ -1,0 +1,18 @@
+<div class="agileits-navi_search">
+  <select
+    id="agileinfo-nav_search"
+    name="agileinfo_search"
+    class="border"
+    required=""
+    (change)="detectchange($event)"
+  >
+    <option value="all">All Categories</option>
+    <option value="{{ cat.id }}" *ngFor="let cat of collection">
+      {{ cat.name }}
+    </option>
+  </select>
+</div>
+
+<!-- <select class="form-control" (change)="detectchange($event)">
+                    <option value="all">All</option>
+                    <option value="{{cat}}" *ngFor="let cat of collection" >{{cat}}</option>  -->

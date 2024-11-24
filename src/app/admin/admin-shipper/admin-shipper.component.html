@@ -1,0 +1,63 @@
+<div class="col-12 col-md-12 col-lg-12">
+  <div class="card box-shadow mx-auto">
+    <h1 class="text-center">Shippers</h1>
+    <img
+      style="width: 600px; margin-left: 35%"
+      src="../../../assets/images/shippper.jfif"
+      class="card-img-top"
+      height="350vh"
+    />
+
+    <table
+      caption="Shippers"
+      class="table table-bordered table-hover text-center p-2 w-100 mx-auto border"
+    >
+      <thead class="border">
+        <th class="border">First Name</th>
+        <th class="border">Last Name</th>
+        <th class="border">Address</th>
+        <th class="border">Email</th>
+        <th class="border">Status</th>
+        <th class="border">Image</th>
+        <th class="border">National ID</th>
+        <th class="border">Acceptance</th>
+      </thead>
+      <tbody class="border">
+        <tr class="border" *ngFor="let user of Shippers">
+          <td class="border">{{ user.firstName }}</td>
+          <td class="border">{{ user.lastName }}</td>
+          <td class="border">{{ user.address }}</td>
+          <td class="border">{{ user.email }}</td>
+          <td class="border">{{ user.status }}</td>
+
+          <td class="border">
+            <img
+              class="img-fluid w-50"
+              style="height: 100px"
+              src="http://localhost:5252/images/{{ user?.licenseImage }}"
+              alt="ProductImage"
+            />
+          </td>
+
+          <td class="border">{{ user.ssd }}</td>
+          <td class="border">
+            <div class="d-flex" style="width: 80px; margin-left: 90px;" >
+              <button
+                class="btn btn-success m-2 buttonn1"
+                (click)="confirmAccount(user.applicationUserId)"
+              >
+                Accept
+              </button>
+              <button
+                class="btn btn-danger m-2 buttonn2"
+                (click)="rejectAcount(user.applicationUserId)"
+              >
+                Remove
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

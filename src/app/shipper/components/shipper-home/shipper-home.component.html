@@ -1,0 +1,60 @@
+<div class="content">
+  <div class="Header">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs col-md-6 nav-justified mx-auto my-5">
+            <li class="nav-item">
+              <h3 class="fw-bold circle" role="tab" aria-controls="profile">
+                <img
+                  class="img-fluid w-25"
+                  style="border-radius: 50%; border: 1px solid red"
+                  src="http://localhost:5252/images/{{
+                    ShipperInfo?.licenseImage
+                  }}"
+                  alt="ProductImage"
+                />
+              </h3>
+              <span style="font-weight: bolder">{{ Shipper }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12">
+  <div class="card box-shadow mx-auto">
+    <h1 class="text-center mb-5">Your Shipments</h1>
+    <table
+      caption="Customars"
+      class="table table-bordered table-hover text-center p-2 w-100 mx-auto border"
+    >
+      <thead class="border">
+        <th class="border">Order ID</th>
+        <th class="border">Address</th>
+        <th class="border">Phone</th>
+        <th class="border">Total Price</th>
+        <th class="border">Delivered</th>
+      </thead>
+      <tbody class="border">
+        <tr class="border" *ngFor="let order of OrdersShippers">
+          <td class="border">{{ order.id }}</td>
+          <td class="border">{{ order.address }}</td>
+          <td class="border">{{ order.phone }}</td>
+          <td class="border">{{ order.totalPrice }}</td>
+          <td class="border" style="padding-left: 7%">
+            <div class="d-flex w-auto">
+              <button
+                class="btn btn-success m-2 buttonn1 text-center"
+                (click)="confirmOrder(order.id)"
+              >
+                Done
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

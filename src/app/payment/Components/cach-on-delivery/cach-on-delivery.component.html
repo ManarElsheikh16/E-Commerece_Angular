@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>How To Create</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="login.css"> -->
+</head>
+
+<body>
+
+  <div class="login-page bg-light" style="margin-top: -6%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <h3 class="mb-3 text-primary">Check Out</h3>
+          <div class="bg-white shadow rounded">
+            <div class="row">
+              <div class="col-md-7 pe-0">
+                <div class="form-left h-100 py-5 px-5">
+                  <select id="agileinfo-nav_search" [(ngModel)]="selectedCity" (change)="onCitySelect($event)" name="agileinfo_search" class="border" required="">
+                    <!-- <option disabled selected>Select City</option> -->
+                    <option value="{{city}}" *ngFor="let city of cityList">
+                      {{ city }}
+                    </option>
+                   </select>
+                  <form [formGroup]="orderForm" class="row g-4" style="padding-top: 7%;" (ngSubmit)="SubmitData(orderForm)">
+                    <div class="col-12 form-group">
+                      <div *ngIf="invalidQuantity" class="alert alert-danger m-2">
+                        {{invalidQuantity}}
+                    </div>
+                    <label>Address<span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-geo-alt"></i></div>
+                        <input type="text" formControlName="address"
+                          [class.is-valid]="address?.valid  && address?.touched"
+                          [class.is-invalid]="address?.invalid && address?.touched " class="form-control"
+                          placeholder="Enter address">
+                        </div>
+                          <div *ngIf="address?.invalid && address?.touched">
+                          <h6 *ngIf="address?.errors?.['required'] " class="text-danger ">address is Required</h6>
+                        </div>
+                       </div>
+
+                    <div class="col-12 form-group">
+                      <label>Phone<span class="text-danger">*</span></label>
+                      <div class="input-group">
+                        <div class="input-group-text"><i class="bi bi-telephone"></i></div>
+                        <input formControlName="phone" [class.is-valid]="phone?.valid  && phone?.touched"
+                          [class.is-invalid]="phone?.invalid && phone?.touched" type="text"
+                          class="form-control" placeholder="Enter phone">
+
+                        </div>
+                          <div *ngIf="phone?.invalid && phone?.touched">
+
+                          <h6 *ngIf="phone?.errors?.['required']" class="text-danger">phone is Required</h6>
+                          <h6 *ngIf="phone?.errors?.['pattern']" class="text-danger">phone must be 11
+                            number</h6>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="col-12">
+                      <button type="submit" [class]="orderForm.invalid?'btn btn-danger' :'btn btn-primary'"
+                        [disabled]="orderForm.invalid" class="btn btn-primary px-4 float-end mt-4">Order</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-5 ps-0 d-none d-md-block">
+                <div class="form-right h-100  text-white text-center ">
+                  <img class="img-fluid" style="background-repeat: no-repeat;" src="../../../../assets/images/Checkout.png" alt="Logo">
+                  <h2 class="fs-1">Welcome Back!!!</h2>
+                </div>
+              </div>
+            </div>
+            <div>
+              <!-- <p>Don't have an account? <a routerLink="register">Register Now</a></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+
+</body>
+
+</html>

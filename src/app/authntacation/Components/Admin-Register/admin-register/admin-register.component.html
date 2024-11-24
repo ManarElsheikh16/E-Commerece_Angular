@@ -1,0 +1,176 @@
+<div class="register-photo">
+  <div class="form-container">
+    <div class="image-holder"></div>
+
+    <form method="post" class="form-group" [formGroup]="RegisterationForm"
+    (ngSubmit)="submitRegisterForm(RegisterationForm)
+    "
+    >
+      <h2 class="text-center">Create<strong>Admin</strong> an account.</h2>
+      <div *ngIf="error" class="alert alert-danger m-2">
+          {{error}}
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="firstName"
+          name="firstName"
+          placeholder="firstName"
+        />
+        <div *ngIf="FirstName?.errors != null && FirstName?.touched">
+          <p *ngIf="FirstName?.errors?.['ForbidenName']" class="text-danger">
+            firstName Must not be Admin
+          </p>
+          <p *ngIf="FirstName?.errors?.['required']" class="text-danger">
+            firstName is required
+          </p>
+          <p *ngIf="FirstName?.errors?.['pattern']" class="text-danger">
+            firstName contain Upper and Lower Character
+          </p>
+          <p *ngIf="FirstName?.errors?.['minlength']" class="text-danger">
+            firstName Must be more than 3 letter
+          </p>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="lastName"
+          name="lastName"
+          placeholder="lastName"
+        />
+        <div *ngIf="LastName?.errors != null && LastName?.touched">
+          <p *ngIf="LastName?.errors?.['ForbidenName']" class="text-danger">
+            lastName Must not be Admin
+          </p>
+          <p *ngIf="LastName?.errors?.['required']" class="text-danger">
+            lastName is required
+          </p>
+          <p *ngIf="LastName?.errors?.['pattern']" class="text-danger">
+            lastName contain Upper and Lower Character
+          </p>
+          <p *ngIf="LastName?.errors?.['minlength']" class="text-danger">
+            lastName Must be more than 3 letter
+          </p>
+        </div>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="address"
+          name="address"
+          placeholder="address"
+        />
+        <div *ngIf="address?.errors != null && address?.touched">
+          <p *ngIf="address?.errors?.['ForbidenName']" class="text-danger">
+            address Must not be Admin
+          </p>
+          <p *ngIf="address?.errors?.['required']" class="text-danger">
+            address is required
+          </p>
+          <p *ngIf="address?.errors?.['pattern']" class="text-danger">
+            address contain Upper and Lower Character
+          </p>
+          <p *ngIf="address?.errors?.['minlength']" class="text-danger">
+            address Must be more than 4 letter
+          </p>
+        </div>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="userName"
+          name="userName"
+          placeholder="userName"
+        />
+        <div *ngIf="userName?.errors != null && userName?.touched">
+          <p *ngIf="userName?.errors?.['ForbidenName']" class="text-danger">
+            Username Must not be Admin
+          </p>
+          <p *ngIf="userName?.errors?.['required']" class="text-danger">
+            Username is required
+          </p>
+          <p *ngIf="userName?.errors?.['pattern']" class="text-danger">
+            Username contain Upper and Lower Character
+          </p>
+          <p *ngIf="userName?.errors?.['minlength']" class="text-danger">
+            Username Must be more than 4 letter
+          </p>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="password"
+          name="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+
+        <div *ngIf="password?.errors != null && password?.touched">
+        <p *ngIf="password?.errors?.['required']" class="text-danger">
+          Password Is Required.
+        </p>
+        <p *ngIf="password?.errors?.['strong']" class="text-danger">
+          Not strong Password,Must contain at least 1 digit,1 Uppercase ,1
+          Lowercase and 1 special Character
+        </p>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="password"
+          formControlName="confirmPassword"
+          name="confirmPassword"
+          placeholder="confirmPassword"
+        />
+        <p *ngIf="RegisterationForm?.errors?.['MisMatch']" class="text-danger">
+          Confirm Password Not Match Password
+        </p>
+      </div>
+      <br>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="email"
+          formControlName="email"
+          name="email"
+          placeholder="Email"
+        />
+        <div *ngIf="Email?.errors != null && Email?.touched">
+        <p *ngIf="Email?.errors?.['required']" class="text-danger">
+          Email Is Required.
+        </p>
+        <p *ngIf="Email?.errors?.['email']" class="text-danger">
+          Invalid Email
+        </p>
+      </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" />I agree to the
+            license terms.
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="RegisterationForm.invalid" class="btn btn-primary btn-block" type="submit" >Sign Up</button>
+      </div>
+      <a (click)="getLogin()" class="already">You already have an account? Login here.</a>
+    </form>
+  </div>
+</div>
